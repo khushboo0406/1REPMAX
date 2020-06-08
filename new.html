@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1REP MAX | MEMBER</title>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>" >
+    <script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/fonts/font-awesome.min.css')?>"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css')?>">
+    <style>
+        body{
+            background-image: url('<?php echo base_url('assets/images/back2.png')?>');
+            background-size: auto;
+        }
+    </style>
+</head>
+<body style="background-color: #13171D;">  
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <br><br>
+                <h1 align="center">1REP MAX</h1>
+                <br><br><br> 
+                <li >
+                    <a href="<?php echo base_url('Home')?>">Dashboard</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('Home/plan')?>">My Plans</a>
+                </li>
+                <li class="active">
+                    <a href="<?php echo base_url('Home/health')?>" class="active">Health Status</a>
+                </li>
+                <br><br><br><br>
+                <div align="center">
+                    <input type="button" name="logout" id="logout" onclick="window.location.href='<?php echo base_url('Login/logout')?>' " value="logout">
+                </div>
+            </ul>
+        </div>
+        <div class="container-fluid">
+            <br><h3 style="float: right; padding-right: 25px; color: white;"><b>Welcome: <?php echo $session_data['name']?></b></h3><br><br>
+            <p style="font-size: 40px; text-decoration: none; color: white;">Health Status</p>
+            <hr>
+        </div>
+        <div id="page-content-wrapper" align="center">
+            <div class="card"  style="width: 50%; border-width: 0.35px; background-color: #eeeeee;">
+                <div class="container" >        <!-- `calorie`, `height`, `weight`, `fat`, `remarks` -->
+                    <div class="row">
+                        <table class="table table-borderless">
+                            <div class="container">
+                            <tbody>
+                            <?php foreach($GetHealth as $data){?>       
+                                <tr>
+                                  <th scope="row">Calories:</th>
+                                  <td><?php echo $data['calorie']?></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Height:</th>
+                                  <td><?php echo $data['height']?></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Weight:</th>
+                                  <td><?php echo $data['weight']?></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Fat:</th>
+                                  <td><?php echo $data['fat']?></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Remarks:</th>
+                                  <td><?php echo $data['remarks']?></td>
+                                </tr>
+                            <?php }?>    
+                          </tbody>
+                        </div>
+                        </table>
+                    </div>
+                </div>
+            </div>       
+        </div>
+    </div>
+</body>
+</html>
